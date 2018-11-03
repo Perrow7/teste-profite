@@ -55,5 +55,34 @@ template { display: none; }
 body { font: 400 1.6rem/1 "Ubuntu", sans-serif; background-color: white; }
 
 /* Componentes */
+#top-header .menu { background-color: white; }
+#top-header .menu .content-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; max-width: 127rem; padding: 0 1.5rem 0; margin: 0 auto 0; }
+#top-header .menu .content-container .home-link { margin-left: 4rem; }
+#top-header .menu .content-container [name$="search-form"] { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; max-width: 45rem; }
+#top-header .menu .content-container [name$="search-form"] .input-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; align-content: normal; padding-bottom: .5rem; border-bottom: solid 0.1rem #7a7a7a; }
+#top-header .menu .content-container [name$="search-form"] .input-container label { display: none; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"] { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; font-size: 1.3rem; color: black; padding-bottom: .5rem; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::-webkit-input-placeholder { -webkit-transition: opacity 0.8s; transition: opacity 0.8s; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:-ms-input-placeholder { -webkit-transition: opacity 0.8s; transition: opacity 0.8s; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::-ms-input-placeholder { -webkit-transition: opacity 0.8s; transition: opacity 0.8s; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::placeholder { -webkit-transition: opacity 0.8s; transition: opacity 0.8s; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:focus::-webkit-input-placeholder { opacity: 0; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:focus:-ms-input-placeholder { opacity: 0; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:focus::-ms-input-placeholder { opacity: 0; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:focus::placeholder { opacity: 0; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::-webkit-input-placeholder { font-size: inherit; color: #7a7a7a; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]:-ms-input-placeholder { font-size: inherit; color: #7a7a7a; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::-ms-input-placeholder { font-size: inherit; color: #7a7a7a; }
+#top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::placeholder { font-size: inherit; color: #7a7a7a; }
+#top-header .menu .content-container .miscellaneous-links { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; max-width: 31.2rem; margin-right: 1.9rem; }
+#top-header .menu .content-container .miscellaneous-links .login-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; color: #7a7a7a; }
+#top-header .menu .content-container .miscellaneous-links .login-container .user { margin-right: 0.5rem; }
+#top-header .menu .content-container .miscellaneous-links .login-container .message { font-size: 1.3rem; }
+#top-header .menu .content-container .miscellaneous-links .buy-container { padding: .5rem 0; padding-right: 2rem; border-right: solid 0.1rem #7a7a7a; cursor: default; }
+#top-header .menu .content-container .miscellaneous-links .buy-container .cart { margin-right: .5rem; cursor: pointer; }
+#top-header .menu .content-container .miscellaneous-links .buy-container .buy-amount { display: inline-block; width: 1.4rem; height: 1.4rem; background-color: #2ec2b3; border: none; border-radius: 50%; position: relative; cursor: pointer; }
+#top-header .menu .content-container .miscellaneous-links .buy-container .buy-amount .content { font-family: inherit; font-size: 1rem; font-weight: 500; color: white; text-transform: none; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
+#top-header .menu .content-container .miscellaneous-links .idioms-list li { display: inline-block; padding: 3rem 0; }
+#top-header .menu .content-container .miscellaneous-links .idioms-list li:not(:last-child) { margin-right: 2rem; }
 
 /*# sourceMappingURL=home.css.map */
