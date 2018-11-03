@@ -1,0 +1,144 @@
+// Endereços
+
+@function o-get-font( $family, $type, $extension, $deep: 3 ) // Retorna o caminho para dada fonte a partir de um endereço base
+  { $path: ""; $back-path: "";
+    @for $i from 1 through $deep { $back-path: $back-path + "../" }
+    @if not variable-exists( font-path )
+      { $path: $back-path + "multimedia/fonts/" + $family + "/" + $family + "-" + $type + "." + $extension; }
+    @else
+      { $path: $back-path + map-get( $font-path, $family ) + $family + "-" + $type + "." + $extension; }
+    @return $path; }
+
+@function o-get-img( $size, $file, $deep: 3 ) // Retorna o caminho para dada imagem a partir de um endereço base
+  { $path: ""; $back-path: "";
+    @for $i from 1 through $deep { $back-path: $back-path + "../" }
+    @if not variable-exists( img-path )
+      { $prefix: "";
+        @if $size == "x-small" { $prefix: "S-" }
+        @else if $size == "small" { $prefix: "s-" }
+        @else if $size == "medium" { $prefix: "m-" }
+        @else if $size == "large" { $prefix: "l-" }
+        @else if $size == "x-large" { $prefix: "L-" }
+        @else { @error "Unknow 'size' argument declared for 'o-get-img'."; }
+        $path: $back-path + "multimedia/images/" + $size + "/" + $prefix + $file; }
+    @else
+      { $path: $back-path + map-get( $img-path, $size ) + $file; }
+    @return $path; }
+
+// Números
+
+@function o-strip-units( $number )  // Remove unidades de números
+  { @return $number/( $number * 0 + 1 ); }
+
+@function o-px-to-abs-em( $value )
+  { @if not unitless( $value ) { $value: o-strip-units( $value ) };
+    @return $value/16 + em; }
+
+// Listas
+
+@function o-first( $list ) // Retorna o primeiro elemento de uma lista
+	{ @return nth( $list, 1 ); }
+
+@function o-last( $list ) // Retorna o último elemento de uma lista
+	{	@return nth( $list, length( $list ) ); }
+
+@function o-last-index( $list, $value ) // Retorna o último número de índice do elemento em uma lista
+  { @for $i from length($list) * -1 through -1
+    { @if nth( $list, abs($i) ) == $value
+      { @return abs($i); } }
+    @return null; }
+
+@function o-insert-nth( $list, $index, $value ) // Adiciona valor em dado número de índice da lista
+  { @if type-of( $index ) != number
+      { @error "$index: #{ quote( $index ) } is not a number for `o-insert-nth`."; }
+    @else if $index < 1
+      { @error "List index must be a non-zero integer for `o-insert-nth`."; }
+    @else if $index > length( $list )
+      { @error "List index is #{ $index }, but list is only #{ length( $list ) } item long for `o-insert-nth'."; }
+    $result: ();
+    @for $i from 1 through length( $list )
+      { @if $i == $index
+          { $result: append( $result, $value, list-separator( $list ) ); }
+        $result: append( $result, nth( $list, $i ), list-separator( $list ) ); }
+    @return $result; }
+
+@function o-replace( $list, $old-value, $new-value, $recursive: false ) // Substitui valor da lista por outro
+  { $result: ();
+    @for $i from 1 through length( $list )
+      { @if type-of( nth( $list, $i ) ) == list and $recursive
+          { $result: append( $result, o-replace( nth( $list, $i ), $old-value, $new-value, $recursive ) ); }
+        @else
+          { @if nth( $list, $i ) == $old-value
+              { $result: append( $result, $new-value, list-separator( $list ) ); }
+            @else
+              { $result: append( $result, nth( $list, $i ), list-separator( $list ) ); } } }
+    @return $result; }
+
+@function o-replace-nth( $list, $index, $value ) // Substitui valor em dado número de índice da lista por outro
+  { @if type-of($index) != number
+      { @error "$index: #{ quote( $index ) } is not a number for `o-replace-nth`."; }
+    @else if $index == 0
+      { @error "List index must be a non-zero integer for `o-replace-nth`."; }
+    @else if abs( $index ) > length( $list )
+      { @error "List index is #{ $index }, but list is only #{ length( $list ) } item long for `o-replace-nth`."; }
+    $result: ();
+    $index: if( $index < 0, length( $list ) + $index + 1, $index );
+    @for $i from 1 through length( $list )
+      { @if $i == $index
+          { $result: append( $result, $value, list-separator( $list ) ); }
+        @else { $result: append( $result, nth( $list, $i ), list-separator( $list ) ); } }
+    @return $result; }
+
+@function o-remove( $list, $value, $recursive: false ) // Remove valor de uma lista
+  { $result: ();
+    @for $i from 1 through length( $list )
+      { @if type-of( nth( $list, $i ) ) == list and $recursive
+          { $result: append( $result, o-remove( nth( $list, $i ), $value, $recursive ) ); }
+        @else if nth( $list, $i ) != $value
+          { $result: append( $result, nth( $list, $i ), list-separator( $list ) ); } }
+    @return $result; }
+
+@function o-remove-nth( $list, $index ) // Remove valor em número de índice de uma lista
+  { @if type-of( $index ) != number
+      { @error "$index: #{ quote( $index ) } is not a number for `o-remove-nth`."; }
+    @else if $index == 0
+      { @error "List index must be a non-zero integer for `o-remove-nth`."; }
+    @else if abs($index) > length( $list )
+      { @error "List index is #{ $index }, but list is only #{ length( $list ) } item long for `o-remove-nth`."; }
+    $result: ();
+    $index: if( $index < 0, length( $list ) + $index + 1, $index );
+    @for $i from 1 through length( $list )
+      { @if $i != $index
+          { $result: append( $result, nth( $list, $i ), list-separator( $list ) ); } }
+    @return $result; }
+
+@function o-slice( $list, $start: 1, $end: length( $list ), $unquote: false ) // Retorna dado grupo contíguo de componentes de uma lista
+  { @if type-of( $start ) != number or type-of( $end ) != number
+      { @error "Either $start or $end are not a number for `o-slice`."; }
+    @else if $start > $end
+      { @error "The start index has to be lesser than or equals to the end index for `o-slice`."; }
+    @else if $start < 1 or $end < 1
+      { @error "List indexes must be non-zero integers for `o-slice`."; }
+    @else if $start > length( $list )
+      { @error "List index is #{ $start }, but list is only #{ length( $list ) } item long for `o-slice`."; }
+    @else if $end > length( $list )
+      { @error "List index is #{ $end }, but list is only #{ length( $list ) } item long for `o-slice`."; }
+    $result: ();
+    @for $i from $start through $end
+      { $result: append( $result, if( $unquote, unquote( nth( $list, $i ) ), nth( $list, $i ) ), list-separator( $list ) ); }
+    @return $result; }
+
+@function o-reverse( $list, $recursive: false ) // Reverte a ordem dos componentes de uma lista
+  { $result: ();
+    @for $i from length( $list ) * -1 through -1
+      { @if type-of( nth( $list, abs( $i ) ) ) == list and $recursive
+          { $result: append( $result, o-reverse( nth( $list, abs( $i ) ), $recursive ) ); }
+        @else
+          { $result: append( $result, nth( $list, abs( $i ) ), list-separator( $list ) ); } }
+    @return $result; }
+
+@function o-loop( $list, $value: 1 ) // Rotaciona os componentes da lista pelo valor especificado
+  { $result: ();
+    @for $i from 0 to length( $list )
+      { $result: append( $result, nth( $list, ( $i - $value ) % length( $list ) + 1 ), list-separator( $list ) ); }
+    @return $result; }

@@ -1,0 +1,14 @@
+/* Pré-Configurações Gerais */
+
+@import "../../global/default-presets/rules", "../../global/default-presets/mixins", "../../global/default-presets/functions",
+        "../../global/default-presets/animations", "../../global/default-presets/typography";
+
+/* Pré-Configurações do Site */
+
+@import "../../global/site-presets/variables", "../../global/site-presets/mixins";
+
+/* Configurações Locais */
+
+body { font: 400 1.6rem/1 $f-sans-1; background-color: white }
+
+/* Componentes */

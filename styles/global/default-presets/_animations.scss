@@ -1,0 +1,80 @@
+// Misturas Globais de Animações
+	// Revelação de Conteúdo
+		@mixin fade-in( $start: 0, $end: 1 ) // Revelar
+			{	@keyframes fade-in
+				{ from { opacity: $start }
+					to { opacity: $end } } }
+
+		@mixin fade-out( $start: 1, $end: 0 ) // Ocultar
+			{	@keyframes fade-out
+				{ from { opacity: $start }
+					to { opacity: $end } } }
+
+		@mixin fade-in-out( $middle: 1, $start: 0, $end: 0 ) // Revelar & Ocultar
+			{ @keyframes fade-in-out
+			 		{ 0% { opacity: $start }
+				 		10% { opacity: $middle }
+						90% { opacity: $middle }
+						100% { opacity: $end } } }
+
+	// Movimento
+    @mixin straight-move( $direction, $direction-start, $direction-end: 0, // Deslocamento Reto
+                          $overrun: false, $overrun-distance: .25,
+                          $opacity: false, $opacity-start: 0, $opacity-end: 1 )
+  	  {	$straight-move-count: ( left: 0, right: 0, top: 0, bottom: 0 ) !global !default;
+        $straight-move-count: map-merge( $straight-move-count, ( #{ $direction }: map-get( $straight-move-count, #{ $direction } ) + 1 ) );
+        @keyframes straight-move-#{ $direction }-#{ map-get( $straight-move-count, #{ $direction } ) }
+    			{ 0% { #{ $direction }: $direction-start;
+    			 			 @if $opacity { opacity: $opacity-start }	}
+    				@if $overrun { 80% { #{ $direction }: $right-end + ( abs( $direction-start ) * $overrun-distance ) } }
+    				100% { #{ $direction }: $direction-end;
+    				 			 @if $opacity { opacity: $opacity-end } } } }
+
+    @mixin move-left( $left-start, $overrun: false, $left-end: 0, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Esquerda
+      {	@keyframes move-left
+      		{ 0% { left: $left-start;
+      		 			 @if $opacity { opacity: $opacity-start }	}
+      			@if $overrun { 80% { left: $left-end - $left-start/4 } }
+      			100% { left: $left-end;
+      			 			 @if $opacity { opacity: $opacity-end } } } }
+
+   @mixin move-right( $right-start, $overrun: false, $right-end: 0, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Esquerda
+     {	@keyframes move-right
+     		{ 0% { right: $right-start;
+     		 			 @if $opacity { opacity: $opacity-start }	}
+     			@if $overrun { 80% { right: $right-end - $right-start/4 } }
+     			100% { right: $right-end;
+     			 			 @if $opacity { opacity: $opacity-end } } } }
+
+    @mixin move-top( $top-start, $overrun: false, $top-end: 0, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Cima
+    	{	@keyframes move-top
+    		{ 0% { top: $top-start;
+    						@if $opacity { opacity: $opacity-start }	}
+    			@if $overrun { 80% { top: $top-end - $top-start/4 } }
+    			100% { top: $top-end;
+    							@if $opacity { opacity: $opacity-end } } } }
+
+  	@mixin move-bottom( $bottom-start, $overrun: false, $bottom-end: 0, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Baixo
+  		{	@keyframes move-bottom
+  			{ 0% { bottom: $bottom-start;
+  						 @if $opacity { opacity: $opacity-start }	}
+  				@if $overrun { 80% { bottom: $bottom-end - $bottom-start/4 } }
+  				100% { bottom: $bottom-end;
+  							 @if $opacity { opacity: $opacity-end } } } }
+
+	// Deslizamento
+		@mixin slide-right( $width-end, $width-start: 0, $overrun: false, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Direita
+			{ @keyframes slide-right
+			 		{ 0% { width: $width-start;
+					 			 @if $opacity { opacity: $opacity-start }	}
+						@if $overrun { 80% { width: $width-end * 1.25 } }
+					 	100% { width: $width-end;
+						  		@if $opacity { opacity: $opacity-end } } } }
+
+		@mixin slide-bottom( $height-end, $height-start: 0, $overrun: false, $opacity: false, $opacity-start: 0, $opacity-end: 1 ) // Para Baixo
+			{ @keyframes slide-bottom
+			 		{ 0% { height: $height-start;
+					 			 @if $opacity { opacity: $opacity-start }	}
+						@if $overrun { 80% { height: $height-end * 1.25 } }
+					 	100% { height: $height-end;
+						  		@if $opacity { opacity: $opacity-end } } } }

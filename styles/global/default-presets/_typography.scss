@@ -1,0 +1,716 @@
+
+// Open Sans
+
+@mixin open-sans( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                  $normal: false, $italic: false, $oblique: false,
+                  $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                  $all: true )
+	{ $name: "open-sans";
+    @if $light or $all
+      { @font-face
+    			{ font-family: "Open Sans"; $type: "light";
+    				src: local( "Open Sans Light" ), local( "OpenSans-Light" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "Open Sans"; $type: "regular";
+    				src: local( "Open Sans Regular" ), local( "OpenSans-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 400; style: normal; stretch: normal } } }
+    @if $semi-bold or $all
+      { @font-face
+          { font-family: "Open Sans"; $type: "semi-bold";
+            src: local( "Open Sans SemiBold" ), local( "OpenSans-SemiBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 600; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "bold";
+						src: local( "Open Sans Bold" ), local( "OpenSans-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if $extra-bold or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "extra-bold";
+						src: local( "Open Sans ExtraBold" ), local( "OpenSans-ExtraBold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 800; style: normal; stretch: normal } } }
+		@if ( $light and $italic ) or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "light-italic";
+						src: local( "Open Sans Light Italic" ), local( "OpenSans-LightItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: italic; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "italic";
+						src: local( "Open Sans Italic" ), local( "OpenSans-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+    @if ( $semi-bold and $italic ) or $all
+      { @font-face
+          { font-family: "Open Sans"; $type: "semi-bold-italic";
+            src: local( "Open Sans SemiBold Italic" ), local( "OpenSans-SemiBoldItalic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 600; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "bold-italic";
+						src: local( "Open Sans Bold Italic" ), local( "OpenSans-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } }
+		@if ( $extra-bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Open Sans"; $type: "extra-bold-italic";
+						src: local( "Open Sans ExtraBold Italic" ), local( "OpenSans-ExtraBoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 800; style: italic; stretch: normal } } } }
+
+// PT Sans
+
+@mixin pt-sans( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                $normal: false, $italic: false, $oblique: false,
+                $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                $all: true )
+	{ $name: "pt-sans";
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "PT Sans"; $type: "regular";
+    				src: local( "PT Sans Regular" ), local( "PTSans-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 400; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "PT Sans"; $type: "bold";
+						src: local( "PT Sans Bold" ), local( "PTSans-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "PT Sans"; $type: "italic";
+						src: local( "PT Sans Italic" ), local( "PTSans-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "PT Sans"; $type: "bold-italic";
+						src: local( "PT Sans Bold Italic" ), local( "PTSans-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Roboto
+
+@mixin roboto( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+               $normal: false, $italic: false, $oblique: false,
+               $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+               $all: true )
+  { $name: "roboto";
+    @if $thin or $all
+      { @font-face
+    			{ font-family: "Roboto"; $type: "thin";
+    				src: local( "Roboto Thin" ), local( "Roboto-Thin" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 100; style: normal; stretch: normal } } }
+    @if $light or $all
+      { @font-face
+    			{ font-family: "Roboto"; $type: "light";
+    				src: local( "Roboto Light" ), local( "Roboto-Light" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "Roboto"; $type: "regular";
+    				src: local( "Roboto Regular" ), local( "Roboto-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 400; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+    			{ font-family: "Roboto"; $type: "medium";
+    				src: local( "Roboto Medium" ), local( "Roboto-Medium" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 500; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "bold";
+						src: local( "Roboto Bold" ), local( "Roboto-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if $black or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "black";
+						src: local( "Roboto Black" ), local( "Roboto-Black" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 900; style: normal; stretch: normal } } }
+		@if ( $thin and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "thin-italic";
+						src: local( "Roboto Thin Italic" ), local( "Roboto-ThinItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 100; style: italic; stretch: normal } } }
+		@if ( $light and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "light-italic";
+						src: local( "Roboto Light Italic" ), local( "Roboto-LightItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: italic; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "italic";
+						src: local( "Roboto Italic" ), local( "Roboto-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $medium and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "medium-italic";
+						src: local( "Roboto Medium Italic" ), local( "Roboto-MediumItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 500; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "bold-italic";
+						src: local( "Roboto Bold Italic" ), local( "Roboto-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } }
+		@if ( $black and $italic ) or $all
+			{ @font-face
+					{ font-family: "Roboto"; $type: "black-italic";
+						src: local( "Roboto Black Italic" ), local( "Roboto-BlackItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 900; style: italic; stretch: normal } } } }
+
+// Source Sans Pro
+
+@mixin source-sans-pro( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                        $normal: false, $italic: false, $oblique: false,
+                        $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                        $all: true )
+  { $name: "source-sans-pro";
+    @if $extra-light or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "extra-light";
+            src: local( "Source Sans Pro ExtraLight" ), local( "SourceSansPro-ExtraLight" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 200; style: normal; stretch: normal } } }
+    @if $light or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "light";
+            src: local( "Source Sans Pro Light" ), local( "SourceSansPro-Light" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "regular";
+            src: local( "Source Sans Pro Regular" ), local( "SourceSansPro-Regular" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 400; style: normal; stretch: normal } } }
+    @if $semi-bold or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "semi-bold";
+            src: local( "Source Sans Pro SemiBold" ), local( "SourceSansPro-SemiBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 600; style: normal; stretch: normal } } }
+    @if $bold or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "bold";
+            src: local( "Source Sans Pro Bold" ), local( "SourceSansPro-Bold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } }
+    @if $black or $all
+      { @font-face
+          { font-family: "Source Sans Pro"; $type: "black";
+            src: local( "Source Sans Pro Black" ), local( "SourceSansPro-Black" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 900; style: normal; stretch: normal } } } }
+
+// Plain
+
+@mixin plain( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+              $normal: false, $italic: false, $oblique: false,
+              $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+              $all: true )
+  { $name: "plain";
+    @if $thin or $all
+      { @font-face
+    		  { font-family: "Plain"; $type: "ultra-light";
+    				src: local( "Plain UltraLight" ), local( "Plain-UltraLight" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+    				font: { weight: 100; style: normal; stretch: normal } } }
+    @if $extra-light or $all
+      { @font-face
+          { font-family: "Plain"; $type: "thin";
+            src: local( "Plain Thin" ), local( "Plain-Thin" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 200; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+          { font-family: "Plain"; $type: "regular";
+            src: local( "Plain Regular" ), local( "Plain-Regular" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 400; style: normal; stretch: normal } } }
+    @if $extra-bold or $all
+      { @font-face
+          { font-family: "Plain"; $type: "extra-bold";
+            src: local( "Plain ExtraBold" ), local( "Plain-ExtraBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "otf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } } }
+
+// Ubuntu
+
+@mixin ubuntu( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+               $normal: false, $italic: false, $oblique: false,
+               $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+               $all: true )
+	{ $name: "ubuntu";
+    @if $light or $all
+      { @font-face
+    			{ font-family: "Ubuntu"; $type: "light";
+    				src: local( "Ubuntu Light" ), local( "Ubuntu-Light" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "Ubuntu"; $type: "regular";
+    				src: local( "Ubuntu Regular" ), local( "Ubuntu-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 400; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+    			{ font-family: "Ubuntu"; $type: "medium";
+    				src: local( "Ubuntu Medium" ), local( "Ubuntu-Medium" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 500; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Ubuntu"; $type: "bold";
+						src: local( "Ubuntu Bold" ), local( "Ubuntu-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if ( $light and $italic ) or $all
+			{ @font-face
+					{ font-family: "Ubuntu"; $type: "light-italic";
+						src: local( "Ubuntu Light Italic" ), local( "Ubuntu-LightItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: italic; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Ubuntu"; $type: "italic";
+						src: local( "Ubuntu Italic" ), local( "Ubuntu-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $medium and $italic ) or $all
+			{ @font-face
+					{ font-family: "Ubuntu"; $type: "medium-italic";
+						src: local( "Ubuntu Medium Italic" ), local( "Ubuntu-MediumItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 500; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Ubuntu"; $type: "bold-italic";
+						src: local( "Ubuntu Bold Italic" ), local( "Ubuntu-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Palatino Linotype
+
+@mixin palatino-linotype( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                          $normal: false, $italic: false, $oblique: false,
+                          $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                          $all: true )
+	{ $name: "palatino-linotype";
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "Palatino Linotype"; $type: "regular";
+    				src: local( "Palatino Linotype Regular" ), local( "PalatinoLinotype-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+    				font: { weight: 400; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Palatino Linotype"; $type: "bold";
+						src: local( "Palatino Linotype Bold" ), local( "PalatinoLinotype-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Palatino Linotype"; $type: "italic";
+						src: local( "Palatino Linotype Italic" ), local( "PalatinoLinotype-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Palatino Linotype"; $type: "bold-italic";
+						src: local( "Palatino Linotype Bold Italic" ), local( "PalatinoLinotype-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Cambria
+
+@mixin cambria( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                $normal: false, $italic: false, $oblique: false,
+                $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                $all: true )
+	{ $name: "cambria";
+    @if $regular or $all
+      { @font-face
+    			{ font-family: "Cambria"; $type: "regular";
+    				src: local( "Cambria Regular" ), local( "Cambria-Regular" ),
+    				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 400; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Cambria"; $type: "bold";
+						src: local( "Cambria Bold" ), local( "Cambria-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Cambria"; $type: "italic";
+						src: local( "Cambria Italic" ), local( "Cambria-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Cambria"; $type: "bold-italic";
+						src: local( "Cambria Bold Italic" ), local( "Cambria-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Times New Roman
+
+@mixin times-new-roman( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                        $normal: false, $italic: false, $oblique: false,
+                        $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                        $all: true )
+	{ $name: "times-new-roman";
+    @if $regular or $all
+      { @font-face
+  			{ font-family: "Times New Roman"; $type: "regular";
+  				src: local( "Times New Roman Regular" ), local( "TimesNewRoman-Regular" ),
+  				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+          font: { weight: 400; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Times New Roman"; $type: "bold";
+						src: local( "Times New Roman Bold" ), local( "TimesNewRoman-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } }
+		@if ( $regular and $italic ) or $all
+			{ @font-face
+					{ font-family: "Times New Roman"; $type: "italic";
+						src: local( "Times New Roman Italic" ), local( "TimesNewRoman-Italic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 400; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Times New Roman"; $type: "bold-italic";
+						src: local( "Times New Roman Bold Italic" ), local( "TimesNewRoman-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Embassy BT
+
+@mixin embassy-bt( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                   $normal: false, $italic: false, $oblique: false,
+                   $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                   $all: true )
+	{ $name: "embassy-bt";
+    @if $regular or $all
+      { @font-face
+  			{ font-family: "Embassy BT"; $type: "regular";
+  				src: local( "Embassy BT Regular" ), local( "EmbassyBT-Regular" ),
+  				url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+          font: { weight: 400; style: normal; stretch: normal } } } }
+
+// Museo Sans
+
+@mixin museo-sans( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                   $normal: false, $italic: false, $oblique: false,
+                   $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                   $all: true )
+  { $name: "museo-sans";
+    @if $thin or $all
+    { @font-face
+        { font-family: "Museo Sans"; $type: "thin";
+          src: local( "Museo Sans 100" ), local( "MuseoSans-100" ),
+          url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+          font: { weight: 100; style: normal; stretch: normal } } }
+    @if $light or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "light";
+            src: local( "Museo Sans 300" ), local( "MuseoSans-300" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 300; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "medium";
+            src: local( "Museo Sans 500" ), local( "MuseoSans-500" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 500; style: normal; stretch: normal } } }
+    @if $bold or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "bold";
+            src: local( "Museo Sans 700" ), local( "MuseoSans-700" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } }
+    @if $black or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "black";
+            src: local( "Museo Sans 900" ), local( "MuseoSans-900" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 900; style: normal; stretch: normal } } }
+    @if ( $thin and $italic ) or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "thin-italic";
+            src: local( "Museo Sans 100 Italic" ), local( "MuseoSans-100Italic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 100; style: italic; stretch: normal } } }
+    @if ( $light and $italic ) or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "light-italic";
+            src: local( "Museo Sans 300 Italic" ), local( "MuseoSans-300Italic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 300; style: italic; stretch: normal } } }
+    @if ( $medium and $italic ) or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "medium-italic";
+            src: local( "Museo Sans 500 Italic" ), local( "MuseoSans-500Italic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 500; style: italic; stretch: normal } } }
+    @if ( $bold and $italic ) or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "bold-italic";
+            src: local( "Museo Sans 700 Italic" ), local( "MuseoSans-700Italic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: italic; stretch: normal } } }
+    @if ( $black and $italic ) or $all
+      { @font-face
+          { font-family: "Museo Sans"; $type: "black-italic";
+            src: local( "Museo Sans 900 Italic" ), local( "MuseoSans-900Italic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 900; style: italic; stretch: normal } } } }
+
+// Akrobat
+
+@mixin akrobat( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                $normal: false, $italic: false, $oblique: false,
+                $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                $all: true )
+  { $name: "akrobat";
+    @if $thin or $all
+      { @font-face
+					{ font-family: "Akrobat"; $type: "thin";
+						src: local( "Akrobat Thin" ), local( "Akrobat-Thin" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 100; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+					{ font-family: "Akrobat"; $type: "regular";
+						src: local( "Akrobat Regular" ), local( "Akrobat-Regular" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 400; style: normal; stretch: normal } } }
+    @if $bold or $all
+      { @font-face
+					{ font-family: "Akrobat"; $type: "bold";
+						src: local( "Akrobat Bold" ), local( "Akrobat-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } }
+    @if $extra-bold or $all
+      { @font-face
+					{ font-family: "Akrobat"; $type: "extra-bold";
+						src: local( "Akrobat ExtraBold" ), local( "Akrobat-ExtraBold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 800; style: normal; stretch: normal } } }
+    @if $black or $all
+      { @font-face
+					{ font-family: "Akrobat"; $type: "black";
+						src: local( "Akrobat Black" ), local( "Akrobat-Black" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 900; style: normal; stretch: normal } } } }
+
+// GothamHTF
+
+@mixin gotham-htf( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                   $normal: false, $italic: false, $oblique: false,
+                   $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                   $all: true )
+  { $name: "gotham-htf";
+    @if $light or $all
+      { @font-face
+					{ font-family: "GothamHTF"; $type: "light";
+						src: local( "GothamHTF Thin" ), local( "GothamHTF-Thin" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+					{ font-family: "GothamHTF"; $type: "medium";
+						src: local( "GothamHTF Medium" ), local( "GothamHTF-Medium" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 500; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "GothamHTF"; $type: "bold";
+						src: local( "GothamHTF Bold" ), local( "GothamHTF-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+    @if ( $light and $italic ) or $all
+			{ @font-face
+					{ font-family: "GothamHTF"; $type: "light-italic";
+						src: local( "GothamHTF Thin Italic" ), local( "GothamHTF-ThinItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: italic; stretch: normal } } }
+    @if ( $medium and $italic ) or $all
+      { @font-face
+          { font-family: "GothamHTF"; $type: "medium-italic";
+            src: local( "GothamHTF Medium Italic" ), local( "GothamHTF-MediumItalic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 500; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "GothamHTF"; $type: "bold-italic";
+						src: local( "GothamHTF Bold Italic" ), local( "GothamHTF-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Gotham Rounded
+
+@mixin gotham-rnd( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                   $normal: false, $italic: false, $oblique: false,
+                   $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                   $all: true )
+  { $name: "gotham-rounded";
+    @if $light or $all
+      { @font-face
+					{ font-family: "Gotham Rounded"; $type: "light";
+						src: local( "Gotham Rounded Light" ), local( "GothamRounded-Light" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+					{ font-family: "Gotham Rounded"; $type: "regular";
+						src: local( "Gotham Rounded Book" ), local( "GothamRounded-Book" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 400; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+					{ font-family: "Gotham Rounded"; $type: "medium";
+						src: local( "Gotham Rounded Medium" ), local( "GothamRounded-Medium" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 500; style: normal; stretch: normal } } }
+		@if $bold or $all
+			{ @font-face
+					{ font-family: "Gotham Rounded"; $type: "bold";
+						src: local( "Gotham Rounded Bold" ), local( "GothamRounded-Bold" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: normal; stretch: normal } } }
+    @if ( $light and $italic ) or $all
+			{ @font-face
+					{ font-family: "Gotham Rounded"; $type: "light-italic";
+						src: local( "Gotham Rounded Thin Italic" ), local( "GothamRounded-ThinItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 300; style: italic; stretch: normal } } }
+    @if ( $regular and $italic ) or $all
+      { @font-face
+          { font-family: "Gotham Rounded"; $type: "italic";
+            src: local( "Gotham Rounded Book Italic" ), local( "GothamRounded-BookItalic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 400; style: italic; stretch: normal } } }
+    @if ( $medium and $italic ) or $all
+      { @font-face
+          { font-family: "Gotham Rounded"; $type: "medium-italic";
+            src: local( "Gotham Rounded Medium Italic" ), local( "GothamRounded-MediumItalic" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 500; style: italic; stretch: normal } } }
+		@if ( $bold and $italic ) or $all
+			{ @font-face
+					{ font-family: "Gotham Rounded"; $type: "bold-italic";
+						src: local( "Gotham Rounded Bold Italic" ), local( "GothamRounded-BoldItalic" ),
+						url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+						font: { weight: 700; style: italic; stretch: normal } } } }
+
+// Montserrat
+
+@mixin montserrat( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                   $normal: false, $italic: false, $oblique: false,
+                   $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                   $all: true )
+  { $name: "montserrat";
+    @if $thin or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "thin";
+            src: local( "Montserrat Thin" ), local( "Montserrat-Thin" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 100; style: normal; stretch: normal } } }
+    @if $extra-light or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "extra-light";
+            src: local( "Montserrat ExtraLight" ), local( "Montserrat-ExtraLight" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 200; style: normal; stretch: normal } } }
+    @if $light or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "light";
+            src: local( "Montserrat Light" ), local( "Montserrat-Light" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 300; style: normal; stretch: normal } } }
+    @if $regular or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "regular";
+            src: local( "Montserrat Regular" ), local( "Montserrat-Regular" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 400; style: normal; stretch: normal } } }
+    @if $medium or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "medium";
+            src: local( "Montserrat Medium" ), local( "Montserrat-Medium" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 500; style: normal; stretch: normal } } }
+    @if $semi-bold or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "semi-bold";
+            src: local( "Montserrat SemiBold" ), local( "Montserrat-SemiBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 600; style: normal; stretch: normal } } }
+    @if $bold or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "bold";
+            src: local( "Montserrat Bold" ), local( "Montserrat-Bold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } }
+    @if $extra-bold or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "extra-bold";
+            src: local( "Montserrat ExtraBold" ), local( "Montserrat-ExtraBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 800; style: normal; stretch: normal } } }
+    @if $black or $all
+      { @font-face
+          { font-family: "Montserrat"; $type: "black";
+            src: local( "Montserrat Black" ), local( "Montserrat-Black" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 900; style: normal; stretch: normal } } } }
+
+// Proxima Nova Sc
+
+@mixin proxima-nova-sc( $thin: false, $extra-light: false, $light: false, $regular: false, $medium: false, $semi-bold: false, $bold: false, $extra-bold: false, $black: false,
+                        $normal: false, $italic: false, $oblique: false,
+                        $extra-condensed: false, $condensed: false, $semi-condensed: false, $normal: false, $semi-expanded: false, $expanded: false, $extra-expanded: false,
+                        $all: true )
+  { $name: "proxima-nova-sc";
+    @if ( $bold and $extra-condensed ) or $all
+      { @font-face
+          { font-family: "Proxima Nova Sc"; $type: "bold-extra-condensed";
+            src: local( "Proxima Nova ScOsf ExtraCondensed Bold" ), local( "ProximaNovaScOsf-ExtraCondensedBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: extra-condensed } } }
+    @if ( $bold and $condensed ) or $all
+      { @font-face
+          { font-family: "Proxima Nova Sc"; $type: "bold-condensed";
+            src: local( "Proxima Nova ScOsf Condensed Bold" ), local( "ProximaNovaScOsf-CondensedBold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: condensed } } }
+    @if $bold or $all
+      { @font-face
+          { font-family: "Proxima Nova Sc"; $type: "bold";
+            src: local( "Proxima Nova ScOsf Bold" ), local( "ProximaNovaScOsf-Bold" ),
+            url( o-get-font( $name, $type, "woff2" ) ), url( o-get-font( $name, $type, "ttf" ) );
+            font: { weight: 700; style: normal; stretch: normal } } } }

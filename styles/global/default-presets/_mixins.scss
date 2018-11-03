@@ -1,0 +1,184 @@
+// Determinação de Medidas
+
+@mixin enclose-viewport // Para páginas sem barra de rolagem vertical
+	{ html { height: 100%;
+	  	& body { height: 100%; overflow-y: hidden } } }
+
+@mixin block-viewport( $bg: hsla( 0, 0, 0, .85 ), $z: 2 ) // Superpõe elemento a demais na tela de visualização
+  { box-sizing: border-box; width: 100vw; height: 100vh; position: fixed; top: 0; left: 0; z-index: $z; background-color: $bg }
+
+@mixin set-grid( $v-pad: ( 0 ), $h-pad: ( 1.5rem ), $grid: 120rem, $v-mar: ( 0 ), $media: false ) // Define área de layout
+  { box-sizing: border-box; width: 100%; max-width: $grid + nth( $h-pad, 1 ) * 2; padding: o-first( $v-pad ) o-first( $h-pad ) o-last( $v-pad ); margin: o-first( $v-mar ) auto o-last( $v-mar );
+    @if $media
+      { @media ( #{ unquote( $media ) } ) { padding: { left: o-last( $h-pad ); right: o-last( $h-pad ) } } } }
+
+@mixin fill( $pad: 0 ) // Preenche toda a área do ascendente
+  { box-sizing: border-box; width: 100%; height: 100%; padding: $pad }
+
+@mixin col-calc( $margin, $col, $spaceCount: 1 ) // Define largura de um elemento dentro de um grupo de colunas em que potencialmente se inseri
+  { width: calc( ( #{ $spaceCount } * ( 100% - ( #{ $margin } * ( #{ $col } - 1 ) ) )/#{ $col } ) + ( #{ $margin } * ( #{ $spaceCount } - 1 ) ) ) }
+
+// Layout Flutuante
+
+@mixin l-col-calc( $margin, $col, $spaceCount: 1, $delimiter: false ) // Define largura de uma coluna dentro de um layout flutuante para esquerda
+  { float: left; @include col-calc( $margin, $col, $spaceCount );
+    &:not( :last-child ) { margin-right: $margin }
+    @if $delimiter
+      { @each $position in $delimiter { &:nth-child( #{ $position } ) { margin-right: 0 } } } }
+
+@mixin r-col-calc( $margin, $col, $spaceCount: 1, $delimiter: false ) // Define largura de uma coluna dentro de um layout flutuante para direita
+  { float: right; @include col-calc( $margin, $col, $spaceCount );
+    &:not( :last-child ) { margin-left: $margin }
+    @if $delimiter
+      { @each $position in $delimiter { &:nth-child( #{ $position } ) { margin-left: 0 } } } }
+
+@mixin clearfix // Para elementos com medidas em colapso devido a descendentes flutuantes
+  { &::after { content: ""; display: table; clear: both; @content; } }
+
+// Layout Flexível
+
+@mixin row-flex( $main: space-between, $cross: center, $wrap: nowrap, $side: normal ) // Definição de conteúdo flexível horizontal
+  { display: flex; flex-flow: row $wrap; justify-content: $main; align-items: $cross; align-content: $side }
+
+@mixin column-flex( $main: space-between, $cross: center, $wrap: nowrap, $side: normal ) // Definição de conteúdo flexível vertical
+  { display: flex; flex-flow: column $wrap; justify-content: $main; align-items: $cross; align-content: $side }
+
+@mixin assign-order( $flex-items, $negative: false ) // Define ordem de aparição de descendentes do conteúdo flexível
+  { $i: if( $negative, -1, 1 );
+    @each $item in $flex-items
+      { & #{ unquote( $item ) } { order: $i };
+        $i: if( $negative, $i - 1, $i + 1 ) } }
+
+// Posicionamento de Elementos
+
+@mixin pos-center( $dir: both, $pos: absolute, $transform: null ) // Centraliza horizontal e verticalmente elementos de posição absoluta ou fixa
+	{ position: $pos; $centralize: "";
+    @if $dir == both
+      { top: 50%; left: 50%; $centralize: translate( -50%, -50% ) }
+    @else
+      { #{ $dir }: 50%; $centralize: if( $dir == left, translateX( -50% ), translateY( -50% ) ) }
+		transform: if( not $transform, $centralize, $centralize $transform ) };
+
+@mixin img-center // Centraliza imagens em dado recipiente
+  { width: 100%; height: 100%; object: { fit: scale-down; position: center } }
+
+// Para pseudoelementos
+
+@mixin null-content( $width: 100%, $height: 100% ) // Indica que pseudoelementos não tem conteúdo fraseado
+	{ content: ""; display: inline-block; width: $width; height: $height }
+
+@mixin icon-before( $path, $left: 0, $bottom: 0, $pos: absolute ) // Posiciona ícone à esquerda de dado seletor
+  { &::before { content: url( o-get-img( $path... ) ); display: inline-block; position: $pos; left: $left; bottom: $bottom; @content; } }
+
+@mixin icon-after( $path, $right: 0, $bottom: 0, $pos: absolute ) // Posiciona ícone à direita de dado seletor
+  { &::after { content: url( o-get-img( $path... ) ); display: inline-block; position: $pos; right: $right; bottom: $bottom; @content; } }
+
+@mixin topic-separator( $mar, $distance, $char: "|", $exception: ":last-child", $dir: right ) // Centraliza caractere separador na margem de elementos enfileirados
+  { $element: if( $dir == right or $dir == bottom, "::after", "::before" );
+    position: relative;
+      &:not( #{ unquote( $exception ) } ) { margin-#{ $dir }: $mar;
+        &#{ unquote( $element ) } { content: $char; position: absolute; #{ $dir }: -$distance; @content; } } }
+
+@mixin fade-placeholder( $a-dt ) // Desvanece placeholder de dado input ao recebimento de foco
+  { &::placeholder { transition: opacity #{ $a-dt }; @content; }
+    &:focus::placeholder { opacity: 0 } }
+
+// Definição de Formas
+
+@mixin shape-square( $size, $color: black, $border: none, $rounded: initial ) // Forma quadrados
+  { width: $size; height: $size; background-color: $color; border: $border; border-radius: $rounded }
+
+@mixin shape-circle( $size, $color: black, $border: none ) // Forma círculos
+  { @include shape-square( $size, $color, $border, 50% ) }
+
+@mixin shape-semicircle( $size, $color: black, $dir: top, $border: none ) // Forma semicírculos
+  { $radius: null;
+    @if $dir == top { $radius: 50% 50% 0 0; clip-path: inset( 0 0 ( $size/2 ) ) }
+    @if $dir == bottom { $radius: 0 0 50% 50%; clip-path: inset( ( $size/2 ) 0 0 ) }
+    @if $dir == left { $radius: 50% 0 0 50%; clip-path: inset( 0 ( $size/2 ) 0 0 ) }
+    @if $dir == right { $radius: 0 50% 50% 0; clip-path: inset( 0 0 0 ( $size/2 ) ) }
+    @include shape-square( $size, $color, $border, $radius ) }
+
+@mixin shape-triangle( $size, $color: black, $dir: top, $fallback: false ) // Forma setas
+  { @include shape-square( $size, $color );
+    @if $dir == top { clip-path: polygon( 50% 0%, 100% 100%, 0% 100% ) }
+    @if $dir == bottom { clip-path: polygon( 50% 100%, 100% 0%, 0% 0% ) }
+    @if $dir == left { clip-path: polygon( 0% 50%, 100% 0%, 100% 100% ) }
+    @if $dir == right { clip-path: polygon( 100% 50%, 0% 0%, 0% 100% ) }
+    @if $fallback
+      { @supports not ( clip-path: polygon( 0% 0% ) )
+          { background: url( o-get-img( $fallback... ) ) no-repeat center/auto } } }
+
+@mixin shape-stroke( $width, $height, $color: black, $center: false, $transform: null ) // Cria traço, com optativa centralização em elemento relativo
+  { width: $width; height: $height; background-color: $color;
+    @if $center { @include pos-center( $center, absolute, $transform ) } }
+
+@mixin shape-plus( $width, $height, $color: black, $center: both, $transform: null ) // Cria sinal de mais, com optativa centralização em elemento relativo
+  { @include shape-stroke( $width, $height, $color, $center, $transform );
+    &::after { @include null-content( $width, $height ); background-color: $color; @include pos-center( $transform: rotate( 90deg ) ); @content; } }
+
+@mixin shape-x( $width, $height, $color: black, $center: both, $transform: null ) // Cria um X, com optativa centralização em elemento relativo
+  { @include shape-stroke( $width, $height, $color );
+    @if $center { @include pos-center( $center, absolute, rotate( 45deg ) $transform ) }
+    @else { position: relative; transform: rotate( 45deg ) $transform }
+    &::after { @include null-content( $width, $height ); background-color: $color; @include pos-center( $transform: rotate( 90deg ) $transform ); @content; } }
+
+// Definição de Fontes
+
+@mixin set-font( $size, $weight: inherit, $color: inherit, $tr: none, $family: inherit )
+  { font: { family: $family; size: $size; weight: $weight }; color: $color; text-transform: $tr }
+
+// Definição de Cores
+
+@mixin change-color( $text: ( $c-1, $c-2, $a-dt, $deg ), $background: ( $c-1, $c-2, $a-dt, $deg ), $addendum: "" ) // Altera a cor de textos [e/ou] planos de fundo para a de referência
+  { $transition: ""; $separator: "";
+    @if $text
+      { $transition: "color " + nth( $text, 3 ); $separator: ", " }
+    @if $background
+      { $transition: $transition + $separator + "background-color " + nth( $background, 3 ) }
+    transition: unquote( $transition ) unquote( $addendum ); outline: none;
+      &:hover, &:focus {
+        @if $text { color: mix( nth( $text, 1 ), nth( $text, 2 ), nth( $text, 4 )/1.5 ) }
+        @if $background { background-color: mix( nth( $background, 1 ), nth( $background, 2 ), nth( $background, 4 )/1.5 ) } }
+      &:active {
+        @if $text { color: mix( nth( $text, 1 ), nth( $text, 2 ), nth( $text, 4 ) ) }
+        @if $background { background-color: mix( nth( $background, 1 ), nth( $background, 2 ), nth( $background, 4 ) ) } } }
+
+@mixin text-gradient( $gradient, $fallback ) // Confere gradiente a textos
+	{ color: transparent; background-image: $gradient; -webkit-background-clip: text; background-clip: text;
+    @supports not ( -webkit-background-clip: text )
+      { color: $fallback; background-image: unset } }
+
+@mixin rounded-gradient( $element-size, $border-size, $parent-bg, $child-bg ) // Confere gradiente a bordas arredondadas
+  { @include shape-circle( $element-size, $parent-bg, solid $border-size transparent ); background-clip: padding-box; position: relative;
+      &::after { @include null-content( calc( 100% + #{ $border-size * 2 } ), calc( 100% + #{ $border-size * 2 } ) );
+                 background-image: $child-bg; border-radius: 50%; position: absolute; top: -#{ $border-size }; left: -#{ $border-size }; z-index: -1;
+                 @content; } }
+
+// Definição de Planos de Fundo
+
+@mixin set-bg-images( $set-1, $set-2: $set-1, $set-3: $set-2, $set-4: $set-3 ) // Definição responsiva de planos de fundo em dado elemento
+    { background: { repeat: no-repeat; size: cover };
+        @media ( min-width: 97.5em /* 1560px */ )
+          { background: { image: url( o-get-img( x-large, nth( $set-1, 1 ) ) ); position: nth( $set-1, 2 ) } }
+        @media ( max-width: 97.5em /* 1559px */ ) and ( min-width: 62.5em /* 1000px */ )
+          { background: { image: url( o-get-img( x-large, nth( $set-2, 1 ) ) ); position: nth( $set-2, 2 ) } }
+        @media ( max-width: 62.5em /* 999px */ ) and ( min-width: 28.1em /* 450px */ )
+          { background: { image: url( o-get-img( large, nth( $set-3, 1 ) ) ); position: nth( $set-3, 2 ) } }
+        @media ( max-width: 28.1em /* 449px */ )
+          { background: { image: url( o-get-img( medium, nth( $set-4, 1 ) ) ); position: nth( $set-4, 2 ) } } }
+
+@mixin assign-bg-image( $img-map, $size, $prefix: ".", $suffix: "" ) // Confere imagens de plano de fundo a conjunto de elementos
+    { @each $selector, $file in $img-map
+        { &#{ $prefix + $selector + $suffix } { background-image: url( o-get-img( $size, $file ) ) } } }
+
+// Outros
+
+@mixin hidden-text( $sign: ellipsis ) // Oculta textos com indicador de ocultamento predefinido
+  { overflow: hidden; white-space: nowrap; text-overflow: $sign }
+
+@mixin select // Indica que conteúdo está preparado para ser selecionado
+  { cursor: copy; user-select: all }
+
+@mixin no-select // Indica que conteúdo não é selecionável
+  { cursor: not-allowed; user-select: none }
