@@ -6,12 +6,15 @@ $f-sans-1: "Ubuntu", sans-serif;
 
 // Cores
 
-$c-0: ( hsl( 0, 0%, 48% ) );
+$c-0: ( hsl( 0, 0%, 48% ), hsl( 0, 0%, 74% ) );
 $c-1: ( hsl( 174, 62%, 47% ) );
+$c-2: ( hsl( 35, 100%, 55% ) );
 
 // Transições & Animações
 
-$a-dt: ( .8s ease-out /* Home: Top Header – Search Input – Placeholder */ );
+$a-dt: ( .8s ease-out /* Home: Top Header – Search Input – Placeholder Fading */,
+         1s ease-in-out /* Home: Top Header – Slideshow – Slides List Circles Colors */,
+         .6s ease-out /* Home: Top Header – Slideshow – Slides Arrows Movement */ );
 
 // Medidas
 

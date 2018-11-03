@@ -1,0 +1,19 @@
+#top-header .slideshow { height: 43rem; background: { repeat: no-repeat; position: 100% 50%; size: 50% 100% };
+  & .content-container { box-sizing: border-box; @include column-flex( flex-end ); @include set-grid( $grid: $top-grid ); height: 100%; padding-bottom: 3.7rem; position: relative;
+    & .arrows-set { @include row-flex; width: 100%; @include pos-center;
+      & > * { cursor: pointer; transition: all nth( $a-dt, 3 );
+        &:hover { padding-left: .6rem }
+        &:active { padding-left: .9rem } }
+      & .larr { transform: scale( -1 );
+        &:hover { transform: scale( -1 ) translateX( .6rem ) }
+        &:active { transform: scale( -1 ) translateX( .9rem ) } }
+      & .rarr { 
+        &:hover { transform: translateX( .6rem ) }
+        &:active { transform: translateX( .9rem ) } } }
+    & .heading-container { @include pos-center( top ); left: 4rem;
+      & .title { @include set-font( 4.5rem, 700, white ) }; line-height: 1.15;
+        &::after { @include null-content( 6.5rem, .6rem ); background-color: nth( $c-2, 1 ); margin-top: 1.8rem } }
+    & .slides-menu { @include row-flex( space-evenly ); width: 7.7rem;
+      & li { @include shape-circle( 1rem, nth( $c-0, 2 ) ); @include change-color( null, nth( $c-2, 1 ) nth( $c-0, 2 ) nth( $a-dt, 2 ) 75% ); cursor: pointer;
+        &.current { background-color: nth( $c-2, 1 ) }
+        & .slideshow-content { display: none } } } } }

@@ -4,12 +4,10 @@
   <?php get_head( __DIR__, "Profite – Teste" ) ?>
   <body>
     <header id="top-header">
-      <?php get_top_header_menu() ?>
-      <div class="slideshow">
-        <div class="content-container">
-
-        </div>
-      </div>
+      <?php
+        get_top_header_menu();
+        get_top_header_slideshow( "home" );
+      ?>
     </header>
     <main id="top-content">
 

@@ -12,7 +12,7 @@
     & .miscellaneous-links { @include row-flex; flex-grow: 1; max-width: 31.2rem; margin-right: 1.9rem;
       & .login-container { @include row-flex; color: nth( $c-0, 1 );
         & .user { margin-right: .5rem }
-        & .message { font-size: 1.3rem } }
+        & .message { font-size: 1.3rem; text-transform: capitalize } }
       & .buy-container { padding: .5rem 0; padding-right: 2rem; border-right: solid .1rem nth( $c-0, 1 ); cursor: default;
         & .cart { margin-right: .5rem; cursor: pointer }
         & .buy-amount { display: inline-block; @include shape-circle( 1.4rem, nth( $c-1, 1 ) ); position: relative; cursor: pointer;

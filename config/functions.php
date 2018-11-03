@@ -18,4 +18,33 @@ function get_head( string $abs_dir, string $title, bool $dev = true )
 function get_top_header_menu( $user = null )
   { include "top-header-menu.php"; };
 
+function get_top_header_slideshow( string $version )
+  { $slides = [ 'expertise' => [ 'image' => IMGS_PATH . "large/l-user-1.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'expertise' ) ],
+                'seo' => [ 'image' => IMGS_PATH . "large/l-user-2.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'seo' ) ],
+                'conversions' => [ 'image' => IMGS_PATH . "large/l-user-3.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'conversions' ) ],
+                'e-commerce' => [ 'image' => IMGS_PATH . "large/l-user-4.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'e-commerce' ) ] ];
+    $versions = [ 'home' ];
+    switch ( $version ):
+      case 'home': $slides_set = [ 'expertise' => $slides[ 'expertise' ], 'seo' => $slides[ 'seo' ],
+                                   'conversions' => $slides[ 'conversions' ], 'e-commerce' => $slides [ 'e-commerce' ] ];
+                   break;
+      default: get_top_header_slideshow( array_rand( $versions ) );
+    endswitch;
+    include "top-header-slideshow.php"; };
+
+function get_top_header_slideshow_text( string $slide )
+  { $slides_texts =
+      [ 'expertise' =>
+          '<h1 class="title">Nossa especialidade:<br>experiência de compra.</h1>',
+        'seo' =>
+          '<h2 class="title">SEO &amp; E-commerce</h2>
+           <p class="message">A chave do sucesso para o seu e-commerce.</p>',
+        'conversions' =>
+          '<h2 class="title">Evolução &amp; Inovação</h2>
+           <p class="message">O segredo para a sua conversão.</p>',
+        'e-commerce' =>
+          '<h2 class="title">Implantação de e-commerce.</h2>
+           <p class="message">Seus clientes merecem a melhor experiência de compra.</p>' ];
+    return $slides_texts[ $slide ]; };
+
 ?>
