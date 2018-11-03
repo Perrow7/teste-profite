@@ -1,0 +1,23 @@
+#top-header .menu { background-color: white;
+  & .content-container { @include row-flex; @include set-grid( $grid: $top-grid );
+    & .home-link { margin-left: 4rem;
+      & .logo {  } }
+    & [ name$="search-form" ] { flex-grow: 1; max-width: 45rem;
+      & .input-container { @include row-flex; width: 100%; @include row-flex; padding-bottom: .5rem; border-bottom: solid .1rem nth( $c-0, 1 );
+        & label { display: none }
+        & [ name$="search-input" ] { flex-grow: 1; font-size: 1.3rem; color: black; padding-bottom: .5rem; @include fade-placeholder( nth( $a-dt, 1 ) );
+          &::placeholder { font-size: inherit; color: nth( $c-0, 1 ) } }
+        & [ name$="search-btn" ] {
+          & .lupe {  } } } }
+    & .miscellaneous-links { @include row-flex; flex-grow: 1; max-width: 31.2rem; margin-right: 1.9rem;
+      & .login-container { @include row-flex; color: nth( $c-0, 1 );
+        & .user { margin-right: .5rem }
+        & .message { font-size: 1.3rem } }
+      & .buy-container { padding: .5rem 0; padding-right: 2rem; border-right: solid .1rem nth( $c-0, 1 ); cursor: default;
+        & .cart { margin-right: .5rem; cursor: pointer }
+        & .buy-amount { display: inline-block; @include shape-circle( 1.4rem, nth( $c-1, 1 ) ); position: relative; cursor: pointer;
+          & .content { @include set-font( 1rem, 500, white ); @include pos-center } } }
+      & .idioms-list {
+        & li { display: inline-block; padding: 3rem 0;
+          &:not( :last-child ) { margin-right: 2rem }
+          & a {  } } } } } }
