@@ -10,7 +10,7 @@
       ?>
     </header>
     <main id="top-content">
-
+      <?php get_feature_products() ?>
     </main>
     <footer id="top-footer">
 

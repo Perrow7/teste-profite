@@ -1,0 +1,27 @@
+#featured-products {
+  & > .content-container { @include set-grid( 2.8rem 3.2rem, $grid: map-get( $grid, top ) ); position: relative;
+    @include title-2( 1.9rem ) { margin-left: map-get( $mar, l-default ) };
+    & > .content-body { @include set-grid( 0, 0, map-get( $grid, inner ) ); overflow: hidden;
+      @include arrows-set-1 { filter: brightness( 0 ); margin-top: 2.4rem }
+      & .products-list { @include row-flex; position: relative;
+        & li { color: nth( $c-0, 1 ); flex: 0 0 27%;
+          & .product { @include column-flex( flex-start ); width: fit-content; padding: 2.8rem 1.8rem 1.4rem; margin-right: auto; transition: background-color nth( $a-dt, 2 ); position: relative; overflow: hidden; cursor: pointer;
+            & .ilustration { margin-bottom: 2.5rem }
+            & .title { font: { size: 1.2rem; weight: 500 }; margin-bottom: .6rem; cursor: inherit }
+            & .rating { margin-bottom: .6rem;
+              & li { display: inline-block;
+                &:not( :last-child ) { margin-right: .3rem } } }
+            & .price-container { @include column-flex( flex-start ); line-height: 1.3; margin-bottom: .6rem;
+              & .former-price { font-size: 1.2rem }
+              & .current-price { @include set-font( 2.1rem, 500, nth( $c-1, 1 ) ) }
+              & .complement { font-size: 1.1rem } }
+            & .off-sale { @include shape-triangle( 10rem, nth( $c-2, 1 ), top, x-small "shape-1.png" 3 ); position: absolute; top: -4.2rem; right: -1rem; transform: rotate( 280deg );
+              @supports not ( clip-path: polygon( 0% 0% ) ) { top: 0; right: 0; transform: none }
+              & .message { @include set-font( 1.7rem, 500, white, uppercase ); position: absolute; left: 2.5rem; top: 6rem; transform: rotate( -280deg );
+                @supports not ( clip-path: polygon( 0% 0% ) ) { transform: none; left: 5.2rem; top: 2.7rem } } }
+            & [ name$="buy-btn" ] { visibility: hidden; opacity: 0; width: 12.5rem; height: 3.2rem; border-radius: .5rem; transition: opacity nth( $a-dt, 2 ) }
+          &:hover { background-color: nth( $c-0, 3 );
+            & [ name$="buy-btn" ] { visibility: visible; opacity: 1; background-color: nth( $c-1, 1 );
+              & > .content-container { @include row-flex( center ); height: 100%; width: 85%; margin: 0 auto;
+                & .side-image { margin-right: .8rem }
+                & .action { @include set-font( 1.4rem, 500, white, uppercase ) } } } } } } } } } }

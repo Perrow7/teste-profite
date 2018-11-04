@@ -1,0 +1,30 @@
+/*---- Componentes ----*/
+
+@mixin title-1 // Home: Slideshow
+  { & > .heading-container {
+      .title { @include set-font( 4.5rem, 700, white ); line-height: 1.15 }
+      @include trailing-stroke-1( 6.5rem .6rem, 1.8rem );
+      @content; } }
+
+@mixin title-2 ( $bmar ) // Home: Featured Products
+  { & > .heading-container { margin-bottom: $bmar;
+      .title { @include set-font( 2rem, 700, nth( $c-3, 1 ) ) }
+      @include trailing-stroke-1( 6.5rem .4rem, 1.1rem );
+      @content; } }
+
+@mixin arrows-set-1 ( $pos-center: true ) // Home: Slideshow && Featured Products
+  { & > .arrows-set { @include row-flex; width: 100%;
+      @if $pos-center { @include pos-center }
+      & > * { cursor: pointer; transition: all nth( $a-dt, 3 );
+        &:hover { padding-left: .6rem }
+        &:active { padding-left: .9rem } }
+      & .larr { transform: scale( -1 );
+        &:hover { transform: scale( -1 ) translateX( .6rem ) }
+        &:active { transform: scale( -1 ) translateX( .9rem ) } }
+      & .rarr {
+        &:hover { transform: translateX( .6rem ) }
+        &:active { transform: translateX( .9rem ) } }
+      @content; } }
+
+@mixin trailing-stroke-1( $sizes, $tmar )
+  { &::after { @include null-content( $sizes... ); background-color: nth( $c-2, 1 ); margin-top: $tmar; @content; } }

@@ -6,16 +6,19 @@ $f-sans-1: "Ubuntu", sans-serif;
 
 // Cores
 
-$c-0: ( hsl( 0, 0%, 48% ), hsl( 0, 0%, 74% ) );
+$c-0: ( hsl( 0, 0%, 48% ), hsl( 0, 0%, 74% ), hsl( 0, 0%, 95% ) );
 $c-1: ( hsl( 174, 62%, 47% ) );
 $c-2: ( hsl( 35, 100%, 55% ) );
+$c-3: ( hsl( 207, 95%, 8% ) );
 
 // Transições & Animações
 
-$a-dt: ( .8s ease-out /* Home: Top Header – Search Input – Placeholder Fading */,
-         1s ease-in-out /* Home: Top Header – Slideshow – Slides List Circles Colors */,
-         .6s ease-out /* Home: Top Header – Slideshow – Slides Arrows Movement */ );
+$a-dt: ( .8s ease-out /* Home: Top Header – Menu – Search Input – Placeholder.fade */,
+         1s ease-in-out /* Home: Top Header – Slideshow – Slides Menu – Li.colors, Featured Products – Product.bg-color && Buy Btn.fade */,
+         .6s ease-out /* Home: Top Header – Slideshow – Arrows Set.movement */ );
 
 // Medidas
 
-$top-grid: 124rem;
+$grid: ( top: 124rem, /* Home: * > Content Container */
+         inner: 116rem  /* Home: Featured Products – Products */ );
+$mar: ( l-default: 4rem /* Home: * > Content Container – *.margin */ );

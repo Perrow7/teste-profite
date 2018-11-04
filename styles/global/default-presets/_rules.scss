@@ -21,7 +21,7 @@
    	&[data-title]::after { content: " (" attr( data-title ) ")" } }
   address, cite:not( [lang] ) { font-style: normal }
   button { box-sizing: content-box; font-family: inherit; line-height: 1; cursor: pointer; user-select: none; outline: none; background-color: transparent }
-  input, textarea, select { font: { family: inherit; weight: inherit; stretch: inherit }; outline: none; resize: none }
+  input, textarea, select { font: { family: inherit; weight: inherit; stretch: inherit }; outline: none; resize: none; background-color: transparent }
   template { display: none }
 
   /* Atributos & Classes */
