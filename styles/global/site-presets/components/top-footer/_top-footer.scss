@@ -1,24 +1,41 @@
-#top-footer { background-image: unquote( nth( $lg, 1 ) ); color: white;
-  & > .content-container { @include set-grid( 2.3rem 3.6rem, $grid: map-get( $grid, top ) ); @include row-flex( $cross: flex-end );
+#top-footer { background-image: unquote( map-get( nth( $lg, 2 ), normal ) ); color: white;
+  @media ( max-width: o-px-to-abs-em( 619px ) ) { background-image: unquote( map-get( nth( $lg, 2 ), mobile ) ) }
+  & > .content-container { @include set-grid( 2.3rem 3.6rem, $grid: map-get( $grid, top ) ); @include row-flex( $cross: flex-end, $wrap: wrap );
+    @media ( max-width: o-px-to-abs-em( 749px ) ) { flex-direction: column; align-items: center; max-height: 38rem }
+    @media ( max-width: o-px-to-abs-em( 619px ) ) { padding-bottom: 2.3rem; max-height: none }
     & .contact-info { margin-left: map-get( $mar, l-default );
+      @media ( max-width: o-px-to-abs-em( 899px ) ) { margin-left: 0 }
+      @media ( max-width: o-px-to-abs-em( 749px ) ) { margin-bottom: 3.4rem }
+      @media ( max-width: o-px-to-abs-em( 379px ) ) { width: 100% }
       & .heading-container { margin-bottom: 1.9rem; @include trailing-stroke-1( 4.4rem .5rem, 1.5rem );
-        & .title { font: { size: 2rem; weight: 700 } } }
+        & .title { font: { size: 2rem; weight: 700 };
+          @media ( max-width: o-px-to-abs-em( 619px ) ) { font-size: 1.8rem } } }
       & .location-list { @include row-flex; width: 31.9rem;
+        @media ( max-width: o-px-to-abs-em( 379px ) ) { width: auto }
         & .data-set {
           & abbr { border: none }
           & dt { display: block; font: { size: 1.6rem; weight: 700 }; margin-bottom: .8rem; cursor: default;
+            @media ( max-width: o-px-to-abs-em( 619px ) ) { font-size: 1.5rem }
+            @media ( max-width: o-px-to-abs-em( 379px ) ) { font-size: 1.4rem }
             &::after { content: "" } }
           & dd { font-size: 1.4rem;
+            @media ( max-width: o-px-to-abs-em( 619px ) ) { font-size: 1.3rem }
+            @media ( max-width: o-px-to-abs-em( 379px ) ) { font-size: 1.1rem }
             & .address-info {
               & > span { display: block;
                 &:not( :last-child ) { margin-bottom: .8rem } } } } } } }
     & .contact-us { @include column-flex;
+      @media ( max-width: o-px-to-abs-em( 749px ) ) and ( min-width: o-px-to-abs-em( 620px ) ) { order: 1 }
+      @media ( max-width: o-px-to-abs-em( 619px ) ) { margin-bottom: 2rem }
       @include button-1 {
         &:not( :last-child ) { margin-bottom: 2.5rem }
         & .content-container {
           & .phone { transform: translateX( .8rem );
             & img { width: auto } } } } }
     & .conceivers-info { @include row-flex; width: 13.4rem; margin-right: 2.8rem;
+      @media ( max-width: o-px-to-abs-em( 899px ) ) { margin-right: 0 }
+      @media ( max-width: o-px-to-abs-em( 749px ) ) and ( min-width: o-px-to-abs-em( 620px ) ) { align-self: flex-end }
+      @media ( max-width: o-px-to-abs-em( 619px ) ) { width: 19.8rem }
       & .conceiver-container {
         & .message { display: block; font-size: 1.1rem; margin-bottom: .4rem }
         & .logo {  } } } } }

@@ -13,7 +13,10 @@ $c-3: ( hsl( 207, 95%, 8% ) );
 
 // Gradientes
 
-$lg: ( "linear-gradient( 180deg, hsl(207, 95%, 8%), hsl(207, 95%, 8%) 96%, hsl( 174, 62%, 47% ) 96.1% )" /* Home: Top Footer.background */ );
+$lg: ( "linear-gradient( 90deg, hsl( 0, 0%, 48% ), hsl( 0, 0%, 95% )", /* Lowest and highest site's gray colors */
+       ( /* Top Footer –  */
+         normal: "linear-gradient( 180deg, hsl(207, 95%, 8%), hsl(207, 95%, 8%) 96%, hsl( 174, 62%, 47% ) 96.1% )",
+         mobile: "linear-gradient( 180deg, hsl(207, 95%, 8%), hsl(207, 95%, 8%) 98%, hsl( 174, 62%, 47% ) 98.1% )" ) );
 
 // Transições & Animações
 
