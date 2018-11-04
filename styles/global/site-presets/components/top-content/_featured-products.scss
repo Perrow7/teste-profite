@@ -7,7 +7,7 @@
         & li { color: nth( $c-0, 1 ); flex: 0 0 27%;
           & .product { @include column-flex( flex-start ); width: fit-content; padding: 2.8rem 1.8rem 1.4rem; margin-right: auto; transition: background-color nth( $a-dt, 2 ); position: relative; overflow: hidden; cursor: pointer;
             & .ilustration { margin-bottom: 2.5rem }
-            & .title { font: { size: 1.2rem; weight: 500 }; margin-bottom: .6rem; cursor: inherit }
+            & .title { font: { size: 1.2rem; weight: 500 }; text-transform: uppercase; margin-bottom: .6rem; cursor: inherit }
             & .rating { margin-bottom: .6rem;
               & li { display: inline-block;
                 &:not( :last-child ) { margin-right: .3rem } } }

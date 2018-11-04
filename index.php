@@ -13,7 +13,7 @@
       <?php get_feature_products() ?>
     </main>
     <footer id="top-footer">
-
+      <?php get_top_footer() ?>
     </footer>
   </body>
 </html>

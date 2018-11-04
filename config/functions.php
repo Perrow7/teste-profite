@@ -55,23 +55,26 @@ function get_top_header_slideshow_text( string $slide )
 function get_feature_products()
   { $products_set = [ 'shoe-1' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-2' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-2' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => true ],
-                      'shoe-3' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-3' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-4' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-4' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-5' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-5' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => true ],
-                      'shoe-6' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-6' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-7' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-7' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-8' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R623 K8 V1',
+                      'shoe-8' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ] ];
     include "featured-products.php"; };
 
 function get_arrows_set()
   { include "arrows-set.php"; };
+
+function get_top_footer()
+  { include "top-footer.php"; };
 
 ?>

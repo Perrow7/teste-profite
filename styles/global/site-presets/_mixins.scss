@@ -12,6 +12,9 @@
       @include trailing-stroke-1( 6.5rem .4rem, 1.1rem );
       @content; } }
 
+@mixin trailing-stroke-1( $sizes, $tmar ) // Home: * – Title
+  { &::after { @include null-content( $sizes... ); background-color: nth( $c-2, 1 ); margin-top: $tmar; @content; } }
+
 @mixin arrows-set-1 ( $pos-center: true ) // Home: Slideshow && Featured Products
   { & > .arrows-set { @include row-flex; width: 100%;
       @if $pos-center { @include pos-center }
@@ -26,5 +29,9 @@
         &:active { transform: translateX( .9rem ) } }
       @content; } }
 
-@mixin trailing-stroke-1( $sizes, $tmar )
-  { &::after { @include null-content( $sizes... ); background-color: nth( $c-2, 1 ); margin-top: $tmar; @content; } }
+@mixin button-1 ( $selector: "button" ) // Home: Top Footer – Contact Us
+  { & > #{ unquote( $selector ) } { width: 19.5rem; height: 3.8rem; border-radius: .5rem; background-color: nth( $c-2, 1 );
+      & .content-container { @include row-flex( center ); width: 85%; height: 100%; margin: 0 auto;
+        & .side-image { margin-right: 1.8rem }
+        & .action { @include set-font( 1.2rem, 500, white, uppercase ); line-height: 1.3 } }
+      @content; } }

@@ -11,6 +11,10 @@ $c-1: ( hsl( 174, 62%, 47% ) );
 $c-2: ( hsl( 35, 100%, 55% ) );
 $c-3: ( hsl( 207, 95%, 8% ) );
 
+// Gradientes
+
+$lg: ( "linear-gradient( 180deg, hsl(207, 95%, 8%), hsl(207, 95%, 8%) 96%, hsl( 174, 62%, 47% ) 96.1% )" /* Home: Top Footer.background */ );
+
 // Transições & Animações
 
 $a-dt: ( .8s ease-out /* Home: Top Header – Menu – Search Input – Placeholder.fade */,

@@ -2,7 +2,7 @@
   <div class="content-container">
     <a href="#" class="home-link">
       <picture class="logo">
-        <img src="<?= IMGS_PATH . "x-small/S-logo-1.png" ?>" alt="Logo">
+        <img src="<?= IMGS_PATH . "x-small/S-profite-1.png" ?>" alt="Logo">
       </picture>
     </a>
     <form name="header-search-form" method="post">
