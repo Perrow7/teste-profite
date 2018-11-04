@@ -58,6 +58,20 @@
           </li>
         <?php endforeach; unset( $divided_price ) ?>
       </ul>
+      <ul class="products-nav">
+        <li class="current">
+          <span class="circle"></span>
+        </li>
+        <li>
+          <span class="circle"></span>
+        </li>
+        <li>
+          <span class="circle"></span>
+        </li>
+        <li>
+          <span class="circle"></span>
+        </li>
+      </ul>
     </div>
   </div>
 </section>

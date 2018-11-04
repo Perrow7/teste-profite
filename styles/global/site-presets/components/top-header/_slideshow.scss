@@ -3,6 +3,5 @@
     @include arrows-set-1;
     @include title-1 { @include pos-center( top ); left: map-get( $mar, l-default ) }
     & .slides-menu { @include row-flex( space-evenly ); width: 7.7rem;
-      & li { @include shape-circle( 1rem, nth( $c-0, 2 ) ); @include change-color( null, nth( $c-2, 1 ) nth( $c-0, 2 ) nth( $a-dt, 2 ) 75% ); cursor: pointer;
-        &.current { background-color: nth( $c-2, 1 ) }
+      & li { @include circle-1;
         & .slideshow-content { display: none } } } } }

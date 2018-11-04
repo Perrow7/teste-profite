@@ -15,6 +15,11 @@
 @mixin trailing-stroke-1( $sizes, $tmar ) // Home: * – Title
   { &::after { @include null-content( $sizes... ); background-color: nth( $c-2, 1 ); margin-top: $tmar; @content; } }
 
+@mixin circle-1 // Home: Slideshow – Slides Menu, Featured Products – Products Nav
+  { @include shape-circle( 1rem, nth( $c-0, 2 ) ); @include change-color( null, nth( $c-2, 1 ) nth( $c-0, 2 ) nth( $a-dt, 2 ) 75% ); cursor: pointer;
+      @media ( max-width: o-px-to-abs-em( 449px ) ) { width: .7rem; height: .7rem }
+      &.current { background-color: nth( $c-2, 1 ) } }
+
 @mixin arrows-set-1 ( $pos-center: true ) // Home: Slideshow && Featured Products
   { & > .arrows-set { @include row-flex; width: 100%;
       @if $pos-center { @include pos-center }
