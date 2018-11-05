@@ -10,7 +10,8 @@
           <li>
             <section class="product <?= $name ?>">
               <picture class="ilustration">
-                <img src="<?= $data[ 'image' ] ?>" alt="">
+                <source srcset="<?= IMGS_PATH . $data[ 'image' ][1] ?>" media="( max-width: 24.95em )">
+                <img src="<?= IMGS_PATH . $data[ 'image' ][0] ?>" alt="">
               </picture>
               <h4 class="title"><?= $data[ 'title' ] ?></h4>
               <ul class="rating">

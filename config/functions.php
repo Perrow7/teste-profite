@@ -24,10 +24,14 @@ function get_top_header_menu( $user = null )
   { include "top-header-menu.php"; };
 
 function get_top_header_slideshow( string $version = 'random' )
-  { $slides = [ 'expertise' => [ 'image' => IMGS_PATH . "large/l-user-1.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'expertise' ) ],
-                'seo' => [ 'image' => IMGS_PATH . "large/l-user-2.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'seo' ) ],
-                'conversions' => [ 'image' => IMGS_PATH . "large/l-user-3.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'conversions' ) ],
-                'e-commerce' => [ 'image' => IMGS_PATH . "large/l-user-4.jpg", 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'e-commerce' ) ] ];
+  { $slides = [ 'expertise' => [ 'image' => [ "large/l-user-1.jpg", "medium/m-user-1.jpg", "small/s-user-1.jpg" ],
+                                 'color' => "#011627", 'text' => get_top_header_slideshow_text( 'expertise' ) ],
+                'seo' => [ 'image' => [ "large/l-user-2.jpg", "medium/m-user-2.jpg", "small/s-user-2.jpg" ],
+                           'color' => "#011627", 'text' => get_top_header_slideshow_text( 'seo' ) ],
+                'conversions' => [ 'image' => [ "large/l-user-3.jpg", "medium/m-user-3.jpg", "small/s-user-3.jpg" ],
+                                   'color' => "#011627", 'text' => get_top_header_slideshow_text( 'conversions' ) ],
+                'e-commerce' => [ 'image' => [ "large/l-user-4.jpg", "medium/m-user-4.jpg", "small/s-user-4.jpg" ],
+                                  'color' => "#011627", 'text' => get_top_header_slideshow_text( 'e-commerce' ) ] ];
     $versions = [ 'home' ];
     switch ( $version ):
       case 'home': $slides_set = [ 'expertise' => $slides[ 'expertise' ], 'seo' => $slides[ 'seo' ],
@@ -53,21 +57,21 @@ function get_top_header_slideshow_text( string $slide )
     return $slides_texts[ $slide ]; };
 
 function get_feature_products()
-  { $products_set = [ 'shoe-1' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+  { $products_set = [ 'shoe-1' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-2' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-2' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => true ],
-                      'shoe-3' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-3' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-4' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-4' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-5' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-5' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => true ],
-                      'shoe-6' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-6' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-7' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-7' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ],
-                      'shoe-8' => [ 'image' => IMGS_PATH . 'small/s-product-1.png', 'title' => 'Tênis Couro Puma R698 Q4 V2',
+                      'shoe-8' => [ 'image' => [ 'small/s-product-1.png', 'small/s-product-1b.png' ], 'title' => 'Tênis Couro Puma R698 Q4 V2',
                                     'score' => 1, 'former-price' => 299, 'current-price' => 399, 'off_sale' => false ] ];
     include "featured-products.php"; };
 

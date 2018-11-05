@@ -1,7 +1,24 @@
 #top-header .slideshow { height: 43rem; background: { repeat: no-repeat; position: 100% 50%; size: 50% 100% };
+  @media ( max-width: o-px-to-abs-em( 749px ) ) { height: 29rem; background: { position: top; size: cover } }
+  @media ( max-width: o-px-to-abs-em( 349px ) ) { height: 19.1rem }
   & .content-container { box-sizing: border-box; @include column-flex( flex-end ); @include set-grid( $grid: map-get( $grid, top ) ); height: 100%; padding-bottom: 3.7rem; position: relative;
-    @include arrows-set-1;
-    @include title-1 { @include pos-center( top ); left: map-get( $mar, l-default ) }
+    @media ( max-width: o-px-to-abs-em( 859px ) ) { padding-bottom: 2.6rem }
+    @media ( max-width: o-px-to-abs-em( 349px ) ) { padding-bottom: 1.3rem }
+    @include arrows-set-1 {
+      @media ( max-width: o-px-to-abs-em( 1299px ) ) { width: 98% }
+      @media ( max-width: o-px-to-abs-em( 749px ) ) { display: none } };
+    @include title-1 { @include pos-center( top ); left: map-get( $mar, l-default );
+      @media ( max-width: o-px-to-abs-em( 749px ) ) { left: 2rem }
+      @media ( max-width: o-px-to-abs-em( 449px ) ) { left: .5rem }
+      @media ( max-width: o-px-to-abs-em( 349px ) ) { top: 9.2rem }
+      & .title {
+        @media ( max-width: o-px-to-abs-em( 1079px ) ) { font-size: 3.5rem }
+        @media ( max-width: o-px-to-abs-em( 859px ) ) { font-size: 3rem }
+        @media ( max-width: o-px-to-abs-em( 449px ) ) { max-width: 20rem } }
+      &::after {
+        @media ( max-width: o-px-to-abs-em( 1079px ) ) { width: 5.5rem; height: .5rem; margin-top: 1.2rem }
+        @media ( max-width: o-px-to-abs-em( 859px ) ) { width: 4.5rem; height: .4rem; margin-top: .6rem }
+        @media ( max-width: o-px-to-abs-em( 349px ) ) { width: 3.2rem; margin: { top: .5rem; bottom: 1.1rem } } } }
     & .slides-menu { @include row-flex( space-evenly ); width: 7.7rem;
       & li { @include circle-1;
         & .slideshow-content { display: none } } } } }
