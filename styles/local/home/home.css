@@ -57,9 +57,20 @@ body { font: 400 1.6rem/1 "Ubuntu", sans-serif; background-color: white; }
 
 /* Componentes */
 #top-header .menu { background-color: white; }
-#top-header .menu .content-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; max-width: 127rem; padding: 0 1.5rem 0; margin: 0 auto 0; }
+#top-header .menu .content-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row wrap; flex-flow: row wrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; -webkit-box-sizing: border-box; box-sizing: border-box; width: 100%; max-width: 127rem; padding: 0 1.5rem 0; margin: 0 auto 0; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container { padding-top: 1.5rem; padding-bottom: 1.5rem; -webkit-box-pack: space-evenly; -ms-flex-pack: space-evenly; justify-content: space-evenly; } }
+@media (max-width: 40.5625em) { #top-header .menu .content-container { -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; } }
+@media (max-width: 32.4375em) { #top-header .menu .content-container .dropdown-menu { -webkit-box-ordinal-group: 2; -ms-flex-order: 1; order: 1; }
+  #top-header .menu .content-container .home-link { -webkit-box-ordinal-group: 3; -ms-flex-order: 2; order: 2; }
+  #top-header .menu .content-container .miscellaneous-links { -webkit-box-ordinal-group: 4; -ms-flex-order: 3; order: 3; }
+  #top-header .menu .content-container [name$='search-form'] { -webkit-box-ordinal-group: 5; -ms-flex-order: 4; order: 4; } }
 #top-header .menu .content-container .home-link { margin-left: 4rem; }
+@media (max-width: 65.5625em) { #top-header .menu .content-container .home-link { margin-left: 0; } }
+@media (max-width: 40.5625em) { #top-header .menu .content-container .home-link .logo { width: 7.1rem; } }
 #top-header .menu .content-container [name$="search-form"] { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; max-width: 45rem; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container [name$="search-form"] { max-width: 35rem; } }
+@media (max-width: 46.8125em) { #top-header .menu .content-container [name$="search-form"] { -webkit-box-flex: 0; -ms-flex-positive: 0; flex-grow: 0; max-width: none; width: 28rem; } }
+@media (max-width: 32.4375em) { #top-header .menu .content-container [name$="search-form"] { margin: 1.3rem auto 0; } }
 #top-header .menu .content-container [name$="search-form"] .input-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; width: 100%; display: flex; flex-flow: row nowrap; justify-content: space-between; align-items: center; align-content: normal; padding-bottom: .5rem; border-bottom: solid 0.1rem #7a7a7a; }
 #top-header .menu .content-container [name$="search-form"] .input-container label { display: none; }
 #top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"] { -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; font-size: 1.3rem; color: black; padding-bottom: .5rem; }
@@ -76,16 +87,28 @@ body { font: 400 1.6rem/1 "Ubuntu", sans-serif; background-color: white; }
 #top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::-ms-input-placeholder { font-size: inherit; color: #7a7a7a; }
 #top-header .menu .content-container [name$="search-form"] .input-container [name$="search-input"]::placeholder { font-size: inherit; color: #7a7a7a; }
 #top-header .menu .content-container .miscellaneous-links { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; -webkit-box-flex: 1; -ms-flex-positive: 1; flex-grow: 1; max-width: 31.2rem; margin-right: 1.9rem; }
+@media (max-width: 65.5625em) { #top-header .menu .content-container .miscellaneous-links { margin-right: 0; } }
+@media (max-width: 61.1875em) { #top-header .menu .content-container .miscellaneous-links { -webkit-box-flex: 0; -ms-flex-positive: 0; flex-grow: 0; } }
+@media (max-width: 32.4375em) { #top-header .menu .content-container .miscellaneous-links { margin-left: 3rem; } }
 #top-header .menu .content-container .miscellaneous-links .login-container { display: -webkit-box; display: -ms-flexbox; display: flex; -webkit-box-orient: horizontal; -webkit-box-direction: normal; -ms-flex-flow: row nowrap; flex-flow: row nowrap; -webkit-box-pack: justify; -ms-flex-pack: justify; justify-content: space-between; -webkit-box-align: center; -ms-flex-align: center; align-items: center; -ms-flex-line-pack: normal; align-content: normal; color: #7a7a7a; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container .miscellaneous-links .login-container { display: none; } }
 #top-header .menu .content-container .miscellaneous-links .login-container .user { margin-right: 0.5rem; }
 #top-header .menu .content-container .miscellaneous-links .login-container .message { font-size: 1.3rem; text-transform: capitalize; }
 #top-header .menu .content-container .miscellaneous-links .buy-container { padding: .5rem 0; padding-right: 2rem; border-right: solid 0.1rem #7a7a7a; cursor: default; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container .miscellaneous-links .buy-container { padding-right: 0; border-right: none; } }
+@media (max-width: 32.4375em) { #top-header .menu .content-container .miscellaneous-links .buy-container { margin-right: 2rem; } }
+@media (max-width: 28.0625em) { #top-header .menu .content-container .miscellaneous-links .buy-container { margin-right: 0; } }
 #top-header .menu .content-container .miscellaneous-links .buy-container .cart { margin-right: .5rem; cursor: pointer; }
 #top-header .menu .content-container .miscellaneous-links .buy-container .buy-amount { display: inline-block; width: 1.4rem; height: 1.4rem; background-color: #2ec2b3; border: none; border-radius: 50%; position: relative; cursor: pointer; }
 #top-header .menu .content-container .miscellaneous-links .buy-container .buy-amount .content { font-family: inherit; font-size: 1rem; font-weight: 500; color: white; text-transform: none; position: absolute; top: 50%; left: 50%; -webkit-transform: translate(-50%, -50%); transform: translate(-50%, -50%); }
 #top-header .menu .content-container .miscellaneous-links .idioms-list { cursor: default; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container .miscellaneous-links .idioms-list { display: none; } }
 #top-header .menu .content-container .miscellaneous-links .idioms-list li { display: inline-block; padding: 3rem 0; }
 #top-header .menu .content-container .miscellaneous-links .idioms-list li:not(:last-child) { margin-right: 2rem; }
+#top-header .menu .content-container .dropdown-menu { display: none; width: 2.3rem; height: 1.6rem; background: url("../../../multimedia/images/x-small/S-menu-1.svg") no-repeat center/auto; position: relative; cursor: pointer; }
+@media (max-width: 61.1875em) { #top-header .menu .content-container .dropdown-menu { display: block; } }
+@media (max-width: 32.4375em) { #top-header .menu .content-container .dropdown-menu { margin-right: 3rem; } }
+#top-header .menu .content-container .dropdown-menu .menu-container { height: 0; overflow: hidden; position: absolute; }
 
 #top-header .slideshow { height: 43rem; background-repeat: no-repeat; background-position: 100% 50%; background-size: 50% 100%; }
 @media (max-width: 46.8125em) { #top-header .slideshow { height: 29rem; background-position: top; background-size: cover; } }

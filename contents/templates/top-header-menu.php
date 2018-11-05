@@ -55,5 +55,20 @@
         </li>
       </ul>
     </nav>
+    <nav class="dropdown-menu">
+      <div class="menu-container">
+        <ul class="user-features">
+          <li>Maecenas eget.</li>
+          <li>Ut facilisis ante.</li>
+          <li>Praesent luctus.</li>
+          <li>Integer porttitor porta.</li>
+        </ul>
+        <ul class="idioms-list">
+          <li><a href="#" class="pt-br"></a></li>
+          <li><a href="#" class="es"></a></li>
+          <li><a href="#" class="en-gb"></a></li>
+        </ul>
+      </div>
+    </nav>
   </div>
 </div>
